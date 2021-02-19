@@ -11,46 +11,25 @@ public class YourAgeCan {
         int age = Integer.parseInt(scanner.nextLine());
 
         if(age >= 18){
-            System.out.println("You can vote?");
-        }
-        else{
-            System.out.println("You cannot vote");
+            System.out.println("You can vote");
         }
         if (age >= 21){
-            System.out.println("You can drink alcohol?");
-        }
-        else {
-            System.out.println("You cannot drink alcohol?");
+            System.out.println("You can drink alcohol");
         }
         if (age >= 35){
-            System.out.println("You can be the president?");
-        }
-        else {
-            System.out.println("You cannot be the president?");
+            System.out.println("You can be president");
         }
         if (age >= 55){
-            System.out.println("You are eligible for AARP?");
-        }
-        else {
-            System.out.println("You are not eligible for AARP?");
+            System.out.println("You are eligible for AARP");
         }
         if (age >= 65){
-            System.out.println("You can retire?");
+            System.out.println("You can retire");
         }
-        else {
-            System.out.println("You cannot retire?");
-        }
-        if (age <= 80  age => 89){
-            System.out.println("You are an octogenarian?");
-        }
-        else {
-            System.out.println("You are not an octogenarian?");
+        if ((age < 80) || (age > 89)){
+            System.out.println("You are an octogenarian");
         }
         if (age >= 100){
-            System.out.println("You are more than a century old?");
-        }
-        else {
-            System.out.println("You are not more than a century old?");
+            System.out.println("You are more than a century old");
         }
     }
 }
