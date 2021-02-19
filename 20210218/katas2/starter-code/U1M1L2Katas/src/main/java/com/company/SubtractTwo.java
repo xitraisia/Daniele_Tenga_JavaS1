@@ -10,9 +10,12 @@ public class SubtractTwo {
         System.out.println("Give me a number");
         int num1 = Integer.parseInt(scanner.nextLine());
 
-        int product = num1 * 2;
-        int sum = product + 5;
+        System.out.println("Give me a number");
+        int num2 = Integer.parseInt(scanner.nextLine());
 
-        System.out.println(sum);
+        int difference = num1 -num2;
+
+
+        System.out.println(difference);
     }
 }

@@ -10,8 +10,9 @@ public class DoubleAndAddFive {
         System.out.println("Give me a number");
         int num1 = Integer.parseInt(scanner.nextLine());
 
-        int addThirteen = num1 + 13;
+        int product = num1 * 2;
+        int sum = product + 5;
 
-        System.out.println(addThirteen);
+        System.out.println(sum);
     }
 }
