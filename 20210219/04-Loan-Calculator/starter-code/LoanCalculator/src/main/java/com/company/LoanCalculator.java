@@ -21,12 +21,13 @@ public class LoanCalculator {
         System.out.println("Input the length of the loan in months");
         months = Integer.parseInt(scanner.nextLine());
 
-        int interestRate;
+        double interestRate;
         System.out.println("Input the interest rate");
-        interestRate = Integer.parseInt(scanner.nextLine());
-        interestRate = interestRate % 100;
+        interestRate = Double.parseDouble(scanner.nextLine());
+        interestRate = (interestRate / 100 )/12;
 
-        int mortgagePayment = loan*(interestRate*(1 + interestRate)*months)/((1 + interestRate)*months - 1);
+
+        double mortgagePayment = loan*(interestRate*Math.pow((1 + interestRate),months))/(Math.pow((1 + interestRate),months) - 1);
 
         System.out.println("This is your mortgage payment");
         System.out.println(mortgagePayment);

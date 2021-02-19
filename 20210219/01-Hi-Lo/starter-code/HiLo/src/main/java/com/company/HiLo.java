@@ -17,13 +17,12 @@ public class HiLo {
 
         System.out.println("Input your Name");
         name = scanner.nextLine();
-        System.out.println("Ok, " + name + ", here are the rules:");
+        System.out.println("OK, " + name + ", here are the rules:");
 
+        randomGuess = randomGenerator.nextInt(100) + 1;
         do {
             System.out.println("Guess a number 1-100");
             userGuess = Integer.parseInt(scanner.nextLine());
-
-            randomGuess = randomGenerator.nextInt(100) + 1;
 
             if (userGuess < randomGuess) {
                 System.out.println("Too Low!");
@@ -32,14 +31,12 @@ public class HiLo {
                 System.out.println("Too High!");
                 userGuess = Integer.parseInt(scanner.nextLine());
             }
+            numberGuesses = numberGuesses + 1;
 
         } while (userGuess != randomGuess);  //couldn't get the number of guesses to display properly
-        {
-            numberGuesses = numberGuesses + 1;
-            System.out.println("Congratulations, " + name + "you win!");
-            System.out.println("You guessed, " + numberGuesses + "times!");
+            System.out.println("Congratulations, " + name + "! You win!");
+            System.out.println("It took you " + numberGuesses + " guesses to find my number!");
 
-        }
     }
 }
 
