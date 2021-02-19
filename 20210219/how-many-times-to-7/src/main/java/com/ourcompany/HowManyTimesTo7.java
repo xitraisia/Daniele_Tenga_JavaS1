@@ -18,7 +18,6 @@ public class HowManyTimesTo7 {
         if (rolls == 7)
             rolls++;
             System.out.println(rolls++);
-            }
         }
     }
 
