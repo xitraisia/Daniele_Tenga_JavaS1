@@ -1,5 +1,6 @@
-public interface Converter {
+package com.company.interfaces;
 
+public interface Converter {
     /**
      * This method converts the given number into its corresponding month.
      * @param monthNumber the number you wish to convert to a month
@@ -14,5 +15,4 @@ public interface Converter {
      * The first day of the week is Sunday
      */
     String convertDay(int dayNumber);
-
 }

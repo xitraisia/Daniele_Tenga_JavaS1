@@ -1,86 +1,80 @@
 public class CalculatorObject {
-    private int a;
-    private int b;
-    private double A;
-    private double B;
 
-    public CalculatorObject(int a, int b, double A, double B){
-        //,int add, double addition, int subtract, double subtraction, int multiply, double multiplication, int divide , double division
-        this.a = a;
-        this.b = b;
-        this.A = A;
-        this.B = B;
+    public int add;
+    public double addition;
+    public int subtract;
+    public double subtraction;
+    public int multiply;
+    public double multiplication;
+    public int divide;
+    public double division;
+
+    public CalculatorObject() {
     }
 
-    public static int add;
-    public static int getAdd() {
+
+    public  int getAdd() {
+        return this.add;
+    }
+    public int setAdd(int a, int b) {
+        add = a + b;
         return add;
     }
-    public int setAdd() {
-        add = this.a + this.b;
-        return add;
-    }
 
-    public static double addition;
-    public static double getAddition() {
+    public double getAddition() {
         return addition;
     }
-    public double setAddition() {
-       addition = this.A + this.B;
+    public double setAddition(double a, double b) {
+       addition = a + b;
        return addition;
     }
 
-    public static int subtract;
-    public static int getSubtract(){
+
+    public int getSubtract(){
         return subtract;
     }
-    public int setSubtract() {
-        subtract = this.a - this.b;
+    public int setSubtract(int a, int b) {
+        subtract = a - b;
         return subtract;
     }
 
-    public static double subtraction;
-    public static double getSubtraction(){
+    public double getSubtraction(){
         return subtraction;
     }
-    public double setSubtraction() {
-        subtraction = this.A -this.B;
+    public double setSubtraction(double a, double b) {
+        subtraction = a - b;
         return subtraction;
     }
 
-    public static int multiply;
-    public static int getMultiply(){
+    public int getMultiply(){
         return multiply;
     }
-    public int setMultiply() {
-        multiply = this.a * this.b;
+    public int setMultiply(int a, int b) {
+        multiply = a * b;
         return multiply;
     }
 
-    public static double multiplication;
-    public static double getMultiplication(){
+    public double getMultiplication(){
         return multiplication;
     }
-    public double setMultiplication(){
-        multiplication = this.A * this.B;
+    public double setMultiplication(double a, double b){
+        multiplication = a * b;
         return multiplication;
     }
 
-    public static int divide;
-    public static int getDivide(){
+    public int getDivide(){
         return divide;
     }
-    public int setDivide() {
-        divide = this.a / this.b;
+    public int setDivide(int a, int b) {
+        divide = a / b;
         return divide;
     }
 
-    public static double division;
-    public static double getDivision(){
-        return multiplication;
+    public double getDivision(){
+        return division;
     }
-    public double setDivision() {
-        division = this.A / this.B;
+    public double setDivision(double a, double b) {
+        division = a / b;
         return division;
     }
 }

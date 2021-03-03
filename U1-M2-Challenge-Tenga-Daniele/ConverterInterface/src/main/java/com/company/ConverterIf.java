@@ -1,3 +1,6 @@
+package com.company;
+import com.company.interfaces.Converter;
+
 import java.util.Scanner;
 
 public class ConverterIf implements Converter{
@@ -10,44 +13,45 @@ public class ConverterIf implements Converter{
         monthNumber = Integer.parseInt(scanner.nextLine());
 
         if ((monthNumber <1) || (monthNumber > 12)){
-            return "You have entered an invalid number. You must enter a number between 1 and 12. Goodbye.";
+            System.out.println("You have entered an invalid number. You must enter a number between 1 and 12. Goodbye.");
         }
         else if ((monthNumber == 1)){
-            return "January";
+            System.out.println("January");
         }
         else if (monthNumber == 2){
-            return "February";
+            System.out.println("February");
         }
         else if (monthNumber == 3){
-            return "March";
+            System.out.println("March");
         }
         else if (monthNumber == 4){
-            return "April";
+            System.out.println("April");
         }
         else if (monthNumber == 5){
-           return "May";
+            System.out.println("May");
         }
         else if (monthNumber == 6){
-            return "June";
+            System.out.println("June");
         }
         else if (monthNumber == 7){
-            return "July";
+            System.out.println("July");
         }
         else if (monthNumber == 8){
-            return "August";
+            System.out.println("August");
         }
         else if (monthNumber == 9){
-            return "September";
+            System.out.println("September");
         }
         else if (monthNumber == 10){
-            return "October";
+            System.out.println("October");
         }
         else if (monthNumber == 11){
-            return "November";
+            System.out.println("November");
         }
         else if (monthNumber == 12){
-            return "December";
+            System.out.println("December");
         }
+        return null;
     }
 
     @Override
@@ -61,25 +65,27 @@ public class ConverterIf implements Converter{
             System.out.println("You have entered an invalid number. You must enter a number between 1 and 7. Goodbye.");
         }
         else if ((dayNumber == 1)){
-            return "Sunday";
+            System.out.println("Sunday");
         }
         else if (dayNumber == 2){
-            return "Monday";
+            System.out.println("Monday");
         }
         else if (dayNumber == 3){
-            return "Tuesday";
+            System.out.println("Tuesday");
         }
         else if (dayNumber == 4){
-            return "Wensday";
+            System.out.println("Wensday");
         }
         else if (dayNumber == 5){
-            return "Thursday";
+            System.out.println("Thursday");
         }
         else if (dayNumber == 6){
-            return "Friday";
+            System.out.println("Friday");
         }
         else if (dayNumber == 7){
-            return "Saturday";
+            System.out.println("Saturday");
         }
+
+        return null;
     }
 }
