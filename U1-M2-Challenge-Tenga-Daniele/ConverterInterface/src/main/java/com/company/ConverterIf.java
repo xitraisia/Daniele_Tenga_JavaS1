@@ -3,7 +3,7 @@ import com.company.interfaces.Converter;
 
 import java.util.Scanner;
 
-public class ConverterIf implements Converter{
+public class ConverterIf implements Converter {
 
     @Override
     public String convertMonth(int monthNumber) {
@@ -87,5 +87,18 @@ public class ConverterIf implements Converter{
         }
 
         return null;
+    }
+    public ConverterIf(){
+
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

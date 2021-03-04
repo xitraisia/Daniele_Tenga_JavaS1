@@ -3,10 +3,14 @@ import com.company.interfaces.Converter;
 
 import java.util.Scanner;
 
-public class ConverterSwitch implements Converter{
+public class ConverterSwitch implements Converter { //we implemented interface converter
+
+    public ConverterSwitch() {
+
+    }
 
     @Override
-    public String convertMonth(int monthNumber) {
+    public String convertMonth(int monthNumber) { //these methods come from converter
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter a number between 1 and 12");
@@ -91,4 +95,15 @@ public class ConverterSwitch implements Converter{
 
         return null;
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }
+

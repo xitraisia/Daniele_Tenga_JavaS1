@@ -2,6 +2,7 @@ package com.company;
 
 public class Accord extends Sedan{
 
+    //these are states and behaviors appropriate to this accord
     public String year;
     public Engine engine;
     public Transmission transmission;
@@ -29,6 +30,8 @@ public class Accord extends Sedan{
     public void setTransmission(Transmission transmission) {
         this.transmission = transmission;
     }
+
+    //these are the extended behaviors from the sedan
     public boolean isPoweredWindows() {
         return poweredWindows;
     }

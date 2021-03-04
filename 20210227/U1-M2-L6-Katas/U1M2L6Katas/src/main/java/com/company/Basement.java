@@ -2,6 +2,8 @@ package com.company;
 
 public class Basement {
 
+    //these are states and behaviors appropriate to this room
+
     private double squareFootage;
     private double roomLength;
     private double roomWidth;

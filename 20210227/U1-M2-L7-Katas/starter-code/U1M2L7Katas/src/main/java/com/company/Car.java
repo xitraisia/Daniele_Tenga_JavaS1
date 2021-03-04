@@ -4,9 +4,12 @@ import com.company.interfaces.Vehicle;
 
 public class Car implements Vehicle{
 
+    //these are the car properties
     public String make;
     public String model;
     public String milesTraveled;
+
+    //and the associated getters and setters
 
     public String getMake() {
         return make;
