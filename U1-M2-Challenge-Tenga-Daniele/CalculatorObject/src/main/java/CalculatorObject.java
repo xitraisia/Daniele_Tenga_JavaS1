@@ -9,9 +9,10 @@ public class CalculatorObject {
     public int divide;
     public double division;
 
-    public CalculatorObject() {
-    }
 
+    public CalculatorObject() {
+
+    }
 
     public  int getAdd() {
         return this.add;

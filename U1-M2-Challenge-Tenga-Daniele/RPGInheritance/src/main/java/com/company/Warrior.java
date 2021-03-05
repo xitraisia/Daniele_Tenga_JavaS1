@@ -1,58 +1,13 @@
 package com.company;
 
-public class Warrior {
+import java.util.Objects;
 
-    private int strength;
-    private int health;
-    private int stamina;
-    private int speed;
-    private int attackPower;
+public class Warrior extends VideoGameCharacters{
     private int shieldStrength;
-    private String name;
-    public boolean attack1;
-    public boolean run1;
-    public boolean plow1;
-    public boolean heal1;
-    public boolean harvest1;
 
-    public int getStrength() {
-        return strength;
-    }
-
-    public void setStrength(int strength) {
-        this.strength = 75;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = 100;
-    }
-
-    public int getStamina() {
-        return stamina;
-    }
-
-    public void setStamina(int stamina) {
-        this.stamina = 100;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = 50;
-    }
-
-    public int getAttackPower() {
-        return attackPower;
-    }
-
-    public void setAttackPower(int attackPower) {
-        this.attackPower = 10;
+    public Warrior(String name, int shieldStrength) {
+        super(name, 75,100,100,50,10);
+        this.shieldStrength = 100;
     }
 
     public int getShieldStrength() {
@@ -62,36 +17,28 @@ public class Warrior {
     public void setShieldStrength(int shieldStrength) {
         this.shieldStrength = shieldStrength;
     }
-
-    public String getName() {
-        return name;
+    public void decreaseShieldStrength(int decreaseShieldStrength){
+        System.out.println(decreaseShieldStrength--);
     }
 
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Warrior warrior = (Warrior) o;
+        return shieldStrength == warrior.shieldStrength;
     }
-    public boolean run(){
-        return run1 = true;
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), shieldStrength);
     }
-    public boolean plow(){
-        return plow1 = true;
-    }
-    public boolean harvest(){
-        return harvest1 = true;
-    }
-    public boolean attack(){
-        return attack1 = true;
-    }
-    public boolean heal(){
-        return heal1 = true;
-    }
-    public int decreaseHealth(){
-        return this.health--;
-    }
-    public int increaseStamina(){
-        return this.stamina++;
-    }
-    public int decreaseStamina(){
-        return this.stamina--;
+
+    @Override
+    public String toString() {
+        return "Warrior{" +
+                "shieldStrength=" + shieldStrength +
+                '}';
     }
 }

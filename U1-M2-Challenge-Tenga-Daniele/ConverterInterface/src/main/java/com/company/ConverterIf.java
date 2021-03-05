@@ -48,7 +48,7 @@ public class ConverterIf implements Converter {
         else if (monthNumber == 11){
             System.out.println("November");
         }
-        else if (monthNumber == 12){
+        else {
             System.out.println("December");
         }
         return null;
@@ -82,7 +82,7 @@ public class ConverterIf implements Converter {
         else if (dayNumber == 6){
             System.out.println("Friday");
         }
-        else if (dayNumber == 7){
+        else  {
             System.out.println("Saturday");
         }
 

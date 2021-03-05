@@ -1,61 +1,18 @@
 package com.company;
 
 
-public class Constable {
+import java.util.Objects;
 
-    private int strength;
-    private int health;
-    private int stamina;
-    private int speed;
-    private int attackPower;
-    private int jurisdiction;
-    private String name;
-    public boolean attack1;
-    public boolean run1;
-    public boolean plow1;
-    public boolean heal1;
-    public boolean harvest1;
+public class Constable extends VideoGameCharacters{ //we have extended the parent class to the child
 
-    public int getStrength() {
-        return strength;
+    private int jurisdiction; //we declare a property that is unique to this object
+
+    public Constable(String name, int jurisdiction) {
+        //this is initializing our specific or unique values to their character
+        super(name, 60, 100, 60, 20, 5);
+        this.jurisdiction = jurisdiction;
     }
-
-    public void setStrength(int strength) {
-        this.strength = 60;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = 100;
-    }
-
-    public int getStamina() {
-        return stamina;
-    }
-
-    public void setStamina(int stamina) {
-        this.stamina = 60;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = 20;
-    }
-
-    public int getAttackPower() {
-        return attackPower;
-    }
-
-    public void setAttackPower(int attackPower) {
-        this.attackPower = 5;
-    }
-
+//getters and setters
     public int getJurisdiction() {
         return jurisdiction;
     }
@@ -63,36 +20,29 @@ public class Constable {
     public void setJurisdiction(int jurisdiction) {
         this.jurisdiction = jurisdiction;
     }
-
-    public String getName() {
-        return name;
+    //we wrote a new method for the attribute
+    public void arrest(){
+        System.out.println("You're under arrest!!");
     }
 
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Constable constable = (Constable) o;
+        return jurisdiction == constable.jurisdiction;
     }
-    public boolean run(){
-        return run1 = true;
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), jurisdiction);
     }
-    public boolean plow(){
-        return plow1 = true;
-    }
-    public boolean harvest(){
-        return harvest1 = true;
-    }
-    public boolean attack(){
-        return attack1 = true;
-    }
-    public boolean heal(){
-        return heal1 = true;
-    }
-    public int decreaseHealth(){
-        return this.health--;
-    }
-    public int increaseStamina(){
-        return this.stamina++;
-    }
-    public int decreaseStamina(){
-        return this.stamina--;
+
+    @Override
+    public String toString() {
+        return "Constable{" +
+                "jurisdiction=" + jurisdiction +
+                '}';
     }
 }
