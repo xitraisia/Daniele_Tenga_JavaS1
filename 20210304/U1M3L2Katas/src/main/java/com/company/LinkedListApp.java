@@ -1,11 +1,11 @@
 package com.company;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class LinkedListApp {
     //refactor the activities in Kata 1 so that they use a LinkedList instead of an ArrayList.
-    public static int total (List<Integer> numbers) {
+    public static int total (LinkedList<Integer> numbers) {
 
         int sum = 0;
         for(int num : numbers) {
@@ -13,7 +13,7 @@ public class LinkedListApp {
         }
         return sum;
     }
-    public static int totalEven (List<Integer> numbers) {
+    public static int totalEven (LinkedList<Integer> numbers) {
 
         int sum = 0;
         for(int i = 0; i < numbers.size(); i += 2) {
@@ -21,7 +21,7 @@ public class LinkedListApp {
         }
         return sum;
     }
-    public static List<String> swapFirstAndLast(List<String> strings) {
+    public static List<String> swapFirstAndLast(LinkedList <String> strings) {
 
         String temp = strings.get(0);
         strings.set(0, strings.get(strings.size() - 1));
@@ -29,11 +29,11 @@ public class LinkedListApp {
 
         return strings;
     }
-    public static List<Integer> reverse(List<Integer> numbers) {
+    public static List<Integer> reverse(LinkedList<Integer> numbers) {
 
-        List<Integer> reversed = (List<Integer>) new LinkedListApp();
+        List<Integer> reversed = new LinkedList<>();
 
-        for(int i = 0; i < numbers.size(); i++) {
+        for(int i = numbers.size(); i >= 0; i++) {
 
             // length - (i + 1) is the n-th to last element
             // so when i = 0, it would be the last element
@@ -45,19 +45,19 @@ public class LinkedListApp {
     }
     public static List<Integer> lessThanFive(List<Integer> numbers) {
 
-        int numLessThanFive = 0;
+        List<Integer> numLessThanFive = new LinkedList<>();
 
         for(int num : numbers) {
             if ( num < 5 ) {
-                numLessThanFive++;
+                numLessThanFive.add(num);
             }
         }
 
-        if ( numLessThanFive == 0 ) {
-            return null;
-        }
+        if ( numLessThanFive.size() > 0 ) {
+            return numLessThanFive;
+        }else return null;
 
-        List<Integer> lessThan = (List<Integer>) new LinkedListApp();;//need help
+        List<Integer> lessThan = (LinkedList<Integer>) new LinkedListApp();;//need help
 
         for(int num : numbers) {
             if ( num < 5 ) {

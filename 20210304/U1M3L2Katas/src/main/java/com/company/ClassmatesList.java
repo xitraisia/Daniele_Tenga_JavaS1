@@ -9,12 +9,14 @@ public class ClassmatesList {
     List<Classmate> classList = new ArrayList<>();
 
 
-
-
-    public String add(){
-        return classList.add();
+    public void add(Classmate classmate){
+        classList.add(classmate);
     }
-    public int get(int a){
+    public Classmate get(int a){
+        return classList.get(a);
+    }
 
+    public List<Classmate> getClassList() {
+        return classList;
     }
 }
