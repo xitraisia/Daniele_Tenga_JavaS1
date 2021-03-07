@@ -1,95 +1,95 @@
 package com.company;
 import com.company.interfaces.Converter;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class ConverterIf implements Converter {
 
     @Override
-    public String convertMonth(int monthNumber) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter a number between 1 and 12");
-        monthNumber = Integer.parseInt(scanner.nextLine());
+    public String convertMonth(int monthNumber) { //we are returning a string so we must output a string hence the string month = ""; variable
+        String month = " ";
 
         if ((monthNumber <1) || (monthNumber > 12)){
             System.out.println("You have entered an invalid number. You must enter a number between 1 and 12. Goodbye.");
         }
         else if ((monthNumber == 1)){
-            System.out.println("January");
+            month = "January";
         }
         else if (monthNumber == 2){
-            System.out.println("February");
+            month = "February";
         }
         else if (monthNumber == 3){
-            System.out.println("March");
+            month = "March";
         }
         else if (monthNumber == 4){
-            System.out.println("April");
+            month ="April";
         }
         else if (monthNumber == 5){
-            System.out.println("May");
+            month = "May";
         }
         else if (monthNumber == 6){
-            System.out.println("June");
+            month = "June";
         }
         else if (monthNumber == 7){
-            System.out.println("July");
+            month = "July";
         }
         else if (monthNumber == 8){
-            System.out.println("August");
+            month = "August";
         }
         else if (monthNumber == 9){
-            System.out.println("September");
+            month = "September";
         }
         else if (monthNumber == 10){
-            System.out.println("October");
+            month = "October";
         }
         else if (monthNumber == 11){
-            System.out.println("November");
+            month = "November";
         }
         else {
-            System.out.println("December");
+            month = "December";
         }
-        return null;
+        return month;
     }
 
     @Override
     public String convertDay(int dayNumber) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter a number between 1 and 7");
-        dayNumber = Integer.parseInt(scanner.nextLine());
+        String month = " ";
 
         if ((dayNumber <1) || (dayNumber > 7)){
-            System.out.println("You have entered an invalid number. You must enter a number between 1 and 7. Goodbye.");
+            month = "You have entered an invalid number. You must enter a number between 1 and 7. Goodbye.";
         }
         else if ((dayNumber == 1)){
-            System.out.println("Sunday");
+            month = "Sunday";
         }
         else if (dayNumber == 2){
-            System.out.println("Monday");
+            month = "Monday";
         }
         else if (dayNumber == 3){
-            System.out.println("Tuesday");
+            month = "Tuesday";
         }
         else if (dayNumber == 4){
-            System.out.println("Wensday");
+            month = "Wensday";
         }
         else if (dayNumber == 5){
-            System.out.println("Thursday");
+            month = "Thursday";
         }
         else if (dayNumber == 6){
-            System.out.println("Friday");
+            month = "Friday";
         }
         else  {
-            System.out.println("Saturday");
+            month = "Saturday";
         }
 
-        return null;
+        return month;
     }
-    public ConverterIf(){
 
+    public ConverterIf() {
+    }
+
+    @Override
+    public String toString() {
+        return "ConverterIf{}";
     }
 
     @Override

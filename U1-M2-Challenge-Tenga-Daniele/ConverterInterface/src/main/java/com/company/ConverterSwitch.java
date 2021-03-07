@@ -6,94 +6,91 @@ import java.util.Scanner;
 public class ConverterSwitch implements Converter { //we implemented interface converter
 
     public ConverterSwitch() {
-
     }
 
     @Override
     public String convertMonth(int monthNumber) { //these methods come from converter
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter a number between 1 and 12");
-        monthNumber = Integer.parseInt(scanner.nextLine());
+        String month = " ";
 
         switch (monthNumber) {
             case 1:
-                System.out.println("January");
+                month = "January";
                 break;
             case 2:
-                System.out.println("February");
+                month = "February";
                 break;
             case 3:
-                System.out.println("March");
+                month = "March";
                 break;
             case 4:
-                System.out.println("April");
+                month = "April";
                 break;
             case 5:
-                System.out.println("May");
+                month = "May";
                 break;
             case 6:
-                System.out.println("June");
+                month = "June";
                 break;
             case 7:
-                System.out.println("July");
+                month = "July";
                 break;
             case 8:
-                System.out.println("August");
+                month = "August";
                 break;
             case 9:
-                System.out.println("September");
+                month = "September";
                 break;
             case 10:
-                System.out.println("October");
+                month = "October";
                 break;
             case 11:
-                System.out.println("November");
+                month = "November";
                 break;
             case 12:
-                System.out.println("December");
+                month = "December";
                 break;
             default:
-                System.out.println("You have entered an invalid number. You must enter a number between 1 and 12. Goodbye.");
+                month = "You have entered an invalid number. You must enter a number between 1 and 12. Goodbye.";
         }
 
-        return null;
+        return month;
     }
 
     @Override
     public String convertDay(int dayNumber) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter a number between 1 and 12");
-        dayNumber = Integer.parseInt(scanner.nextLine());
+        String month = " ";
 
         switch (dayNumber) {
             case 1:
-                System.out.println("Sunday");
+                month = "Sunday";
                 break;
             case 2:
-                System.out.println("Monday");
+                month = "Monday";
                 break;
             case 3:
-                System.out.println("Tuesday");
+                month = "Tuesday";
                 break;
             case 4:
-                System.out.println("Wednesday");
+                month = "Wednesday";
                 break;
             case 5:
-                System.out.println("Thursday");
+                month = "Thursday";
                 break;
             case 6:
-                System.out.println("Friday");
+                month = "Friday";
                 break;
             case 7:
-                System.out.println("Saturday");
+                month = "Saturday";
                 break;
             default:
-                System.out.println("You have entered an invalid number. You must enter a number between 1 and 7. Goodbye.");
+                month = "You have entered an invalid number. You must enter a number between 1 and 7. Goodbye.";
         }
+        return month;
+    }
 
-        return null;
+    @Override
+    public String toString() {
+        return "ConverterSwitch{}";
     }
 
     @Override
