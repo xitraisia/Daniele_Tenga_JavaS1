@@ -1,10 +1,38 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Collections;                       //implimenting a method is adding a body on the method
 import java.util.List;
 
 public class App {
+
+    public static void main(String[] args) {
+
+        ArrayList<Integer> newList1 = new ArrayList<>(5);//we created a new list to put into the method total number
+        newList1.add(4);//filled the list up
+        newList1.add(3);
+        newList1.add(2);
+        newList1.add(5);
+        newList1.add(4);
+        System.out.println(total(newList1));//we then called the method with its parameter (our new list that we created)
+
+        List<Integer> newList = new ArrayList<>();
+        newList.add(6);
+        newList.add(7);
+        newList.add(8);
+        //calling a method lessthanfive.. which means just use this method and in order to use this method we need to first create a list because the method takes in a list
+        System.out.println(lessThanFive(newList));//calling a method system.out.println()
+
+        ArrayList<Integer> newList2 = new ArrayList<>();
+        newList2.add(2);
+        newList2.add(4);
+        newList2.add(3);
+        newList2.add(5);
+        newList2.add(10);
+        System.out.println(totalEven(newList2));
+
+
+    }
 
     public static int total (ArrayList<Integer> numbers) { //refactored from using an array to using a list. interface list with object integer is passed through this parameter
 
@@ -15,7 +43,7 @@ public class App {
         return sum;
     }
 
-    public static int totalEven (ArrayList<Integer> numbers) {
+    public static int totalEven (ArrayList<Integer> numbers) { //we just implemented the method totaleven
 
         int sum = 0;
         for(int i = 0; i < numbers.size(); i += 2) { //number.size is the length of the list
@@ -49,7 +77,7 @@ public class App {
         return reversed;
     }
 
-    public static List<Integer> lessThanFive(ArrayList<Integer> numbers) {
+    public static List<Integer> lessThanFive(List<Integer> numbers) {//this takes in a list becasue of list<integer>
 
         List<Integer>lessThan = new ArrayList<>(); //create new instance
 
