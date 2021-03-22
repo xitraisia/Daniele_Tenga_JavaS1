@@ -20,12 +20,12 @@ public class Magic_8_BallController {
 
         magic = new ArrayList<>();
 
-        magic.add(new Magic_8_Ball("As I see it, yes.",1));
-        magic.add(new Magic_8_Ball("Ask again later.",2));
-        magic.add(new Magic_8_Ball("Don't count on it.",3));
-        magic.add(new Magic_8_Ball("It is certain.",4));
-        magic.add(new Magic_8_Ball("It is decidedly so.",5));
-        magic.add(new Magic_8_Ball("My sources say no.",6));
+//        magic.add(new Magic_8_Ball("As I see it, yes.",1));
+//        magic.add(new Magic_8_Ball("Ask again later.",2));
+//        magic.add(new Magic_8_Ball("Don't count on it.",3));
+//        magic.add(new Magic_8_Ball("It is certain.",4));
+//        magic.add(new Magic_8_Ball("It is decidedly so.",5));
+//        magic.add(new Magic_8_Ball("My sources say no.",6));
 
 
     }
@@ -35,14 +35,21 @@ public class Magic_8_BallController {
     //Response Body: Answer
     @RequestMapping(value = "/magic",method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public Magic_8_Ball createMagic(@Valid @RequestBody Magic_8_Ball magic_8_ball){
+    public Magic_8_Ball createMagic(@Valid @RequestBody String magic_8_ball){
 
         Random random = new Random(); //randomizes answers
 
+
+        magic.add(new Magic_8_Ball(magic_8_ball,"As I see it, yes.",1));
+        magic.add(new Magic_8_Ball(magic_8_ball,"Ask again later.",2));
+        magic.add(new Magic_8_Ball(magic_8_ball,"Don't count on it.",3));
+        magic.add(new Magic_8_Ball(magic_8_ball,"It is certain.",4));
+        magic.add(new Magic_8_Ball(magic_8_ball,"It is decidedly so.",5));
+        magic.add(new Magic_8_Ball(magic_8_ball,"My sources say no.",6));
+
         //make the parameter equal the randomized answers
-        magic_8_ball = magic.get(random.nextInt(magic.size()));
+        Magic_8_Ball randomElement = magic.get(random.nextInt(magic.size()));
 
-
-        return magic_8_ball;
+        return randomElement;
     }
 }

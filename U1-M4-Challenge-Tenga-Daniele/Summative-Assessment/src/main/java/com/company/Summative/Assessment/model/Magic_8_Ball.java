@@ -11,19 +11,19 @@ public class Magic_8_Ball {
 
     }
 
-//    public Magic_8_Ball(String question, String answer, int id) {
-//        this.question = question;
-//        this.answer = answer;
-//        this.id = id;
-//    }
-
-    public Magic_8_Ball(String question){
+    public Magic_8_Ball(String question, String answer, int id) {
         this.question = question;
-    }
-    public Magic_8_Ball(String answer, int id) {
         this.answer = answer;
         this.id = id;
     }
+//
+//    public Magic_8_Ball(String question){
+//        this.question = question;
+//    }
+//    public Magic_8_Ball(String answer, int id) {
+//        this.answer = answer;
+//        this.id = id;
+//    }
 
     public String getQuestion() {
         return question;
@@ -65,6 +65,7 @@ public class Magic_8_Ball {
     @Override
     public String toString() {
         return "Magic_8_Ball{" +
+                "question='" + question + '\'' +
                 ", answer='" + answer + '\'' +
                 ", id=" + id +
                 '}';
