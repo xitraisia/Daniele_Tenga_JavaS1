@@ -50,7 +50,7 @@ public class ConsolesController {
         gameStoreService.removeConsole(id);
     }
 
-    @RequestMapping(value = "/console/m/{manufacturer}", method = RequestMethod.GET)
+    @RequestMapping(value = "/console/m/{manufacturerId}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public List<Consoles> getConsoleByManufacturer(@PathVariable String manufacturerId) {
         return gameStoreService.getConsoleByManufacturer(manufacturerId);

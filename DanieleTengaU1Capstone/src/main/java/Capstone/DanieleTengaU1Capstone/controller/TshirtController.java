@@ -52,13 +52,13 @@ public class TshirtController {
         gameStoreService.removeTshirt(id);
     }
 
-    @RequestMapping(value = "/tshirt/color/{color}", method = RequestMethod.GET)
+    @RequestMapping(value = "/tshirt/color/{colorId}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public List<Tshirt> getTshirtByColor(@PathVariable String colorId) {
         return gameStoreService.getTshirtByColor(colorId);
     }
 
-    @RequestMapping(value = "/tshirt/size/{size}", method = RequestMethod.GET)
+    @RequestMapping(value = "/tshirt/size/{sizeId}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public List<Tshirt> getTshirtBySize(@PathVariable String sizeId) {
         return gameStoreService.getTshirtBySize(sizeId);

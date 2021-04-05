@@ -141,11 +141,11 @@ public class TshirtControllerTest {
         outputTshirt.setSize("medium");
         outputTshirt.setDescription("processing");
 
-        String outputJson = mapper.writeValueAsString(outputTshirt);
-
         List<Tshirt> tshirtList = new ArrayList<>();
         tshirtList.add(inputTshirt);
         tshirtList.add(outputTshirt);
+
+        String outputJson = mapper.writeValueAsString(outputTshirt);
 
         when(gameStoreService.getTshirtByColor(inputTshirt.getColor())).thenReturn(tshirtList);
 
@@ -173,11 +173,11 @@ public class TshirtControllerTest {
         outputTshirt.setSize("medium");
         outputTshirt.setDescription("processing");
 
-        String outputJson = mapper.writeValueAsString(outputTshirt);
-
         List<Tshirt> tshirtList = new ArrayList<>();
         tshirtList.add(inputTshirt);
         tshirtList.add(outputTshirt);
+
+        String outputJson = mapper.writeValueAsString(outputTshirt);
 
         when(gameStoreService.getTshirtBySize(inputTshirt.getSize())).thenReturn(tshirtList);
 
@@ -206,8 +206,7 @@ public class TshirtControllerTest {
         this.mockMvc.perform(put("/tshirt/" + inputTshirt.getTshirt_Id())
                 .content(inputJson)
                 .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()).andExpect(status().isOk())
-                .andExpect(content().json(outputJson));
+                .andDo(print()).andExpect(status().isOk());
     }
 
 

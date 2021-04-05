@@ -111,7 +111,7 @@ public class GamesJdbcTemplateImplTest {
 
         games2.setQuantity(10);
         games2.setPrice(new BigDecimal("10.00"));
-        games2.setStudio(games.getStudio());
+        games2.setStudio("Cladinstine");
         games2.setDescription("blah blah blah");
         games2.setTitle("Optimus");
         games2.setEsrb_rating("R");
@@ -151,12 +151,12 @@ public class GamesJdbcTemplateImplTest {
         games2.setPrice(new BigDecimal("10.00"));
         games2.setStudio(games.getStudio());
         games2.setDescription("blah blah blah");
-        games2.setTitle(games2.getTitle());
+        games2.setTitle("Optimus");
         games2.setEsrb_rating("R");
 
         games2 = gamesDao.addGames(games2);
 
         List<Games> gList = gamesDao.getGamesByTitle("Optimus");
-        assertEquals(1,gList.size());
+        assertEquals(2,gList.size());
     }
 }

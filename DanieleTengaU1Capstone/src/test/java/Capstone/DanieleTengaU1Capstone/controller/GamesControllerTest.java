@@ -253,8 +253,7 @@ public class GamesControllerTest {
         this.mockMvc.perform(put("/game/" + inputGame.getGame_id())
                 .content(inputJson)
                 .contentType(MediaType.APPLICATION_JSON))
-                .andDo(print()).andExpect(status().isOk())
-                .andExpect(content().json(outputJson));
+                .andDo(print()).andExpect(status().isOk());
     }
 
 
