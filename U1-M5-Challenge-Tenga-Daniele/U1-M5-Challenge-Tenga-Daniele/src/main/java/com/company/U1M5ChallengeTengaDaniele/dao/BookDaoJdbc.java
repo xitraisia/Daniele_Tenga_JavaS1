@@ -74,6 +74,7 @@ private static final String INSERT_BOOK_SQL =
 
     @Override
     public List<Book> readAll() {
+
         return jdbcTemplate.query(SELECT_ALL_BOOK_SQL, this::mapRowToBook);
     }
 

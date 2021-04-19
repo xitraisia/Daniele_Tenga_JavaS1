@@ -115,11 +115,18 @@ public class GamesControllerTest {
 
         //Object to JSON in String
         String outputJson = mapper.writeValueAsString(outputGame);
+        System.out.println("---- input and output ----");
+        System.out.println(inputGame);
+        System.out.println("---");
+        System.out.println(outputGame);
+        System.out.println("---");
+        System.out.println(inputJson);
+        System.out.println("***");
 
         when(gameStoreService.saveGames(inputGame)).thenReturn(outputGame);
 
         this.mockMvc.perform(post("/game")
-                .content(inputJson)
+                .content(inputGame)
                 .contentType(MediaType.APPLICATION_JSON)
         ).andDo(print())
                 .andExpect(status().isCreated())

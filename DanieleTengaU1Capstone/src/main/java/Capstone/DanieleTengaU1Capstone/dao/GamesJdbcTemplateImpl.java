@@ -94,6 +94,7 @@ public class GamesJdbcTemplateImpl implements  GamesDao{
 
     @Override
     public List<Games> getAllGame() {
+
         return jdbcTemplate.query(SELECT_ALL_GAMES_SQL, this::mapRowToGame);
     }
 

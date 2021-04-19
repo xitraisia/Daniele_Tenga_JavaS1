@@ -87,17 +87,6 @@ public class ConsolesControllerTest {
                 .andExpect(content().json(outputJson));
     }
 
-//    @Test
-//    public void getConsoleThatDoesNotExistReturns404() throws Exception {
-//
-//        int idForConsoleThatDoesNotExist = 100;
-//
-//        when(gameStoreService.getConsolebyId(idForConsoleThatDoesNotExist)).thenReturn(null);
-//
-//        this.mockMvc.perform(get("/console/" + idForConsoleThatDoesNotExist))
-//                .andDo(print())
-//                .andExpect(status().isNotFound());
-//    }
 
     @Test
     public void createConsoleShouldReturnCreatedConsole() throws Exception {

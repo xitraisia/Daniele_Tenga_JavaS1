@@ -197,7 +197,7 @@ public class GameStoreServiceTest {
 
 
         games = gameStoreService.saveGames(games);
-        Games games2 = gameStoreService.getGamebyId(games.getGame_id());
+        Games games2 = gameStoreService.getGamebyId(2);
         assertEquals(games,games2);
     }
 
