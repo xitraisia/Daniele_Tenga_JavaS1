@@ -1,4 +1,4 @@
-package com.trilogyed.comment.model;
+package com.trilogyed.commentqueueconsumer.comments;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
