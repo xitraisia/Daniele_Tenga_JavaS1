@@ -33,8 +33,7 @@ public class TaskerServiceLayer {
         Task task = dao.getTask(id);
         TaskViewModel tvm = new TaskViewModel();
 
-        int number = task.getId();
-        tvm.setId(number);
+        tvm.setId(task.getId());
         tvm.setTaskDescription(task.getTaskDescription());
         tvm.setCreateDate(task.getCreateDate());
         tvm.setDueDate(task.getDueDate());
