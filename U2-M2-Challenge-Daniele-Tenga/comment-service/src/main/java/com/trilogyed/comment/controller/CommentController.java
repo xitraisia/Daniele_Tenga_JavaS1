@@ -39,6 +39,12 @@ public class CommentController {
         return dao.getAllComments();
     }
 
+    @RequestMapping(value = "/comment/comment/{postId}", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public List<Comment> getAllCommentsForPosts(@PathVariable int postId){
+        return dao.getAllComments();
+    }
+
     @RequestMapping(value = "/comment", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateNotes(@Valid @RequestBody Comment comment){

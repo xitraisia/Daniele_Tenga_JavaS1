@@ -20,6 +20,8 @@ public class PostDaoJdbcImpl implements PostDao{
             "insert into post (post_date, poster_name, post) values ( ?, ?, ?)";
     private static final String SELECT_POST_SQL =
             "select * from post where post_id = ?";
+    private static final String SELECT_POST_BY_POSTER_SQL =
+            "select * from post where post_name = ?";
     private static final String SELECT_ALL_POST_SQL =
             "select * from post";
     private static final String UPDATE_POST_SQL =
@@ -59,6 +61,11 @@ public class PostDaoJdbcImpl implements PostDao{
             // if there is no match for this album id, return null
             return null;
         }
+    }
+
+    @Override
+    public List<Post> getPostByPoster(String poster) {
+        return jdbcTemplate.query(SELECT_POST_BY_POSTER_SQL, this::mapRowToPost, poster);
     }
 
     @Override

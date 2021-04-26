@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -17,7 +19,9 @@ public class Comment {
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate createDate;
+    @NotBlank @Size(max = 50, message = "cannot exceed 50 characters")
     private String commenterName;
+    @NotBlank @Size(max = 255, message = "cannot exceed 255 characters")
     private String comment;
 
     public String getComment() {
@@ -71,5 +75,16 @@ public class Comment {
     @Override
     public int hashCode() {
         return Objects.hash(commentId, postId, createDate, commenterName, comment);
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "commentId=" + commentId +
+                ", postId=" + postId +
+                ", createDate=" + createDate +
+                ", commenterName='" + commenterName + '\'' +
+                ", comment='" + comment + '\'' +
+                '}';
     }
 }

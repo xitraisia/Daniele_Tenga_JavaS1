@@ -43,6 +43,12 @@ public class PostController {
        return dao.getAllPosts();
     }
 
+    @RequestMapping(value = "/posts/poster/{poster}", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    public List<Post> getPostByPoster(@PathVariable String poster) {
+        return dao.getAllPosts();
+    }
+
     @RequestMapping(value = "/posts", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updatePost(@Valid  @RequestBody Post post) {

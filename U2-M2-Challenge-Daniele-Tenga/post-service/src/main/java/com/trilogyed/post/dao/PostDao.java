@@ -10,6 +10,8 @@ public interface PostDao {
 
     Post getPost(int id);
 
+    List<Post> getPostByPoster(String poster);
+
     List<Post> getAllPosts();
 
     void updatePosts(Post post);
