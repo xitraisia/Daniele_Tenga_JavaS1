@@ -1,0 +1,117 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: 'http://localhost:8889'
+    description: Generated server url
+paths:
+  /posts:
+    post:
+      tags:
+        - stwitter-controller
+      operationId: createPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StwitterViewModel'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StwitterViewModel'
+  '/posts/user/{poster_name}':
+    get:
+      tags:
+        - stwitter-controller
+      operationId: getPostsByPoster
+      parameters:
+        - name: poster_name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StwitterViewModel'
+  '/post/{id}':
+    get:
+      tags:
+        - stwitter-controller
+      operationId: getPost
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StwitterViewModel'
+components:
+  schemas:
+    Comment:
+      required:
+        - comment
+        - commenterName
+      type: object
+      properties:
+        commentId:
+          type: integer
+          format: int32
+        postId:
+          type: integer
+          format: int32
+        createDate:
+          type: string
+          format: date
+        commenterName:
+          maxLength: 50
+          minLength: 0
+          type: string
+        comment:
+          maxLength: 255
+          minLength: 0
+          type: string
+    StwitterViewModel:
+      required:
+        - comments
+        - post
+        - posterName
+      type: object
+      properties:
+        postId:
+          type: integer
+          format: int32
+        postDate:
+          type: string
+          format: date
+        posterName:
+          maxLength: 50
+          minLength: 0
+          type: string
+        post:
+          maxLength: 255
+          minLength: 0
+          type: string
+        comments:
+          maxItems: 255
+          minItems: 0
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
