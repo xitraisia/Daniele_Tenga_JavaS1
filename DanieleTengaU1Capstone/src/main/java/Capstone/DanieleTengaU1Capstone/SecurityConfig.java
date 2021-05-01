@@ -15,7 +15,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -29,8 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "select username, password, enabled from users where username = ?")
                 .authoritiesByUsernameQuery(
                         "select username, authority from authorities where username = ?")
-                .passwordEncoder(encoder)
-                .csrf().disable();
+                .passwordEncoder(encoder);
     }
 
     //USER,Searching
