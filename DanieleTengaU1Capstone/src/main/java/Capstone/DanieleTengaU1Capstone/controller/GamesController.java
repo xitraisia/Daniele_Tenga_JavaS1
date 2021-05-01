@@ -25,7 +25,6 @@ public class GamesController {
     GameStoreService gameStoreService;
 
     @RequestMapping(value = "/game", method = RequestMethod.POST)
-    @PostMapping("/game")
     @ResponseStatus(HttpStatus.CREATED)
     public Games createGame(@RequestBody @Valid Games games){
         return gameStoreService.saveGames(games);

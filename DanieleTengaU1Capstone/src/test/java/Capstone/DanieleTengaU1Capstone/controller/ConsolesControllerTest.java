@@ -22,6 +22,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import javax.sql.DataSource;
 import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -43,6 +44,9 @@ public class ConsolesControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @MockBean
+    DataSource dataSource;
 
     @MockBean
     private GameStoreService gameStoreService;

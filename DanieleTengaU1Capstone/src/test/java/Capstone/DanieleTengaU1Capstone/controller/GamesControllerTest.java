@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import javax.sql.DataSource;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,11 +29,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(ConsolesController.class)
+@WebMvcTest(GamesController.class)
 public class GamesControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @MockBean
+    DataSource dataSource;
 
     @MockBean
     private GameStoreService gameStoreService;
@@ -47,9 +51,9 @@ public class GamesControllerTest {
 
     @Test
     public void getGamesByIdShouldReturnGameWithIdJson() throws Exception {
+
         Games inputGame = new Games();
 
-        inputGame.setGame_id(1);
         inputGame.setTitle("brandi");
         inputGame.setEsrb_rating("R");
         inputGame.setDescription("blah blah blah");
@@ -65,12 +69,13 @@ public class GamesControllerTest {
         outputGame.setPrice(new BigDecimal("12.00"));
         outputGame.setStudio("studio");
         outputGame.setQuantity(3);
+        outputGame.setGame_id(1);
 
         String outputJson = mapper.writeValueAsString(outputGame);
 
-        when(gameStoreService.getGamebyId(inputGame.getGame_id())).thenReturn(outputGame);
+        when(gameStoreService.getGamebyId(1)).thenReturn(outputGame);
 
-        this.mockMvc.perform(get("/game/" + outputGame.getGame_id()))
+        this.mockMvc.perform(get("/game/1"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().json(outputJson));
@@ -126,7 +131,7 @@ public class GamesControllerTest {
         when(gameStoreService.saveGames(inputGame)).thenReturn(outputGame);
 
         this.mockMvc.perform(post("/game")
-                .content(inputGame)
+                .content(inputJson)
                 .contentType(MediaType.APPLICATION_JSON)
         ).andDo(print())
                 .andExpect(status().isCreated())
@@ -155,11 +160,11 @@ public class GamesControllerTest {
         outputGame.setStudio("studio");
         outputGame.setQuantity(3);
 
-        String outputJson = mapper.writeValueAsString(outputGame);
-
         List<Games> gamesList = new ArrayList<>();
         gamesList.add(inputGame);
         gamesList.add(outputGame);
+
+        String outputJson = mapper.writeValueAsString(gamesList);
 
         when(gameStoreService.getGameByStudio(inputGame.getStudio())).thenReturn(gamesList);
 
@@ -191,11 +196,13 @@ public class GamesControllerTest {
         outputGame.setStudio("studio");
         outputGame.setQuantity(3);
 
-        String outputJson = mapper.writeValueAsString(outputGame);
 
         List<Games> gamesList = new ArrayList<>();
         gamesList.add(inputGame);
         gamesList.add(outputGame);
+
+        String outputJson = mapper.writeValueAsString(gamesList);
+
         when(gameStoreService.getGameByEsrb(inputGame.getEsrb_rating())).thenReturn(gamesList);
 
         this.mockMvc.perform(get("/game/esrb/" + outputGame.getEsrb_rating()))
@@ -226,11 +233,11 @@ public class GamesControllerTest {
         outputGame.setStudio("studio");
         outputGame.setQuantity(3);
 
-        String outputJson = mapper.writeValueAsString(outputGame);
-
         List<Games> gamesList = new ArrayList<>();
         gamesList.add(inputGame);
         gamesList.add(outputGame);
+
+        String outputJson = mapper.writeValueAsString(gamesList);
 
         when(gameStoreService.getGameByTitle(inputGame.getTitle())).thenReturn(gamesList);
 
@@ -269,7 +276,7 @@ public class GamesControllerTest {
 
         //can't mock the call to delete. it returns void
         this.mockMvc.perform(MockMvcRequestBuilders.delete("/game/8"))
-                .andDo(print()).andExpect(status().isOk())
+                .andDo(print()).andExpect(status().isNoContent())
                 .andExpect(content().string(""));
     }
 

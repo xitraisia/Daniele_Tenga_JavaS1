@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import javax.sql.DataSource;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,11 +31,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(ConsolesController.class)
+@WebMvcTest(TshirtController.class)
 public class TshirtControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @MockBean
+    DataSource dataSource;
 
     @MockBean
     private GameStoreService gameStoreService;
@@ -145,7 +149,7 @@ public class TshirtControllerTest {
         tshirtList.add(inputTshirt);
         tshirtList.add(outputTshirt);
 
-        String outputJson = mapper.writeValueAsString(outputTshirt);
+        String outputJson = mapper.writeValueAsString(tshirtList);
 
         when(gameStoreService.getTshirtByColor(inputTshirt.getColor())).thenReturn(tshirtList);
 
@@ -177,7 +181,7 @@ public class TshirtControllerTest {
         tshirtList.add(inputTshirt);
         tshirtList.add(outputTshirt);
 
-        String outputJson = mapper.writeValueAsString(outputTshirt);
+        String outputJson = mapper.writeValueAsString(tshirtList);
 
         when(gameStoreService.getTshirtBySize(inputTshirt.getSize())).thenReturn(tshirtList);
 
@@ -215,7 +219,7 @@ public class TshirtControllerTest {
 
         //can't mock the call to delete. it returns void
         this.mockMvc.perform(MockMvcRequestBuilders.delete("/tshirt/8"))
-                .andDo(print()).andExpect(status().isOk())
+                .andDo(print()).andExpect(status().isNoContent())
                 .andExpect(content().string(""));
     }
 }

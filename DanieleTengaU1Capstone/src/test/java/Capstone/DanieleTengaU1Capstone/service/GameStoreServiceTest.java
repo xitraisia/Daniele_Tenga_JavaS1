@@ -162,7 +162,7 @@ public class GameStoreServiceTest {
         tshirtList.add(tshirt);
 
         doReturn(tshirt).when(tshirtsDao).addTshirt(tshirt);
-        doReturn(tshirt).when(tshirtsDao).getTshirt(2);
+        doReturn(tshirt).when(tshirtsDao).getTshirt(1);
         doReturn(tshirtList).when(tshirtsDao).getAllTshirts();
     }
     @Test
@@ -175,9 +175,10 @@ public class GameStoreServiceTest {
         console.setModel("croati");
         console.setProcessor("processing");
         console.setMemory_amount("12.wr1");
+        console.setConsole_id(1);
+        gameStoreService.saveConsoles(console);
 
-        console = gameStoreService.saveConsoles(console);
-        Consoles fromService  = gameStoreService.getConsolebyId(console.getConsole_id());
+        Consoles fromService  = gameStoreService.getConsolebyId(1);
         assertEquals(console,fromService);
     }
 
@@ -193,10 +194,8 @@ public class GameStoreServiceTest {
         games.setDescription("blah blah blah");
         games.setTitle("adalin");
         games.setEsrb_rating("12.wr1");
+        gameStoreService.saveGames(games);
 
-
-
-        games = gameStoreService.saveGames(games);
         Games games2 = gameStoreService.getGamebyId(2);
         assertEquals(games,games2);
     }
@@ -207,13 +206,13 @@ public class GameStoreServiceTest {
 
         tshirt.setTshirt_Id(1);
         tshirt.setSize("medium");
-        tshirt.setColor("red");
-        tshirt.setPrice(new BigDecimal("10.00"));
+        tshirt.setColor("blue");
+        tshirt.setPrice(new BigDecimal("2.00"));
         tshirt.setQuantity(3);
         tshirt.setDescription("blah blah blah");
+        gameStoreService.saveTshirt(tshirt);
 
-        tshirt = gameStoreService.saveTshirt(tshirt);
-        Consoles fromService  = gameStoreService.getConsolebyId(tshirt.getTshirt_Id());
+        Tshirt fromService  = gameStoreService.getTshirtbyId(1);
         assertEquals(tshirt,fromService);
     }
 
