@@ -25,6 +25,12 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Tshirt'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
     put:
       tags:
         - tshirt-controller
@@ -45,6 +51,12 @@ paths:
       responses:
         '200':
           description: OK
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
     delete:
       tags:
         - tshirt-controller
@@ -59,6 +71,12 @@ paths:
       responses:
         '204':
           description: No Content
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
   '/game/{id}':
     get:
       tags:
@@ -78,6 +96,12 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Games'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
     put:
       tags:
         - games-controller
@@ -98,6 +122,12 @@ paths:
       responses:
         '200':
           description: OK
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
     delete:
       tags:
         - games-controller
@@ -112,6 +142,12 @@ paths:
       responses:
         '204':
           description: No Content
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
   '/console/{id}':
     get:
       tags:
@@ -131,6 +167,12 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Consoles'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
     put:
       tags:
         - consoles-controller
@@ -151,6 +193,12 @@ paths:
       responses:
         '200':
           description: OK
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
     delete:
       tags:
         - consoles-controller
@@ -165,6 +213,12 @@ paths:
       responses:
         '204':
           description: No Content
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
   /tshirt:
     post:
       tags:
@@ -183,6 +237,12 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Tshirt'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
   /invoice:
     post:
       tags:
@@ -201,6 +261,12 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Invoice'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
   /game:
     post:
       tags:
@@ -219,6 +285,12 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Games'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
   /console:
     post:
       tags:
@@ -237,7 +309,13 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Consoles'
-  '/tshirt/size/{size}':
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
+  '/tshirt/size/{sizeId}':
     get:
       tags:
         - tshirt-controller
@@ -257,7 +335,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Tshirt'
-  '/tshirt/color/{color}':
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
+  '/tshirt/color/{colorId}':
     get:
       tags:
         - tshirt-controller
@@ -277,6 +361,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Tshirt'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
   '/game/title/{titleId}':
     get:
       tags:
@@ -297,6 +387,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Games'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
   '/game/studio/{studioId}':
     get:
       tags:
@@ -317,6 +413,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Games'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
   '/game/esrb/{esrbId}':
     get:
       tags:
@@ -337,7 +439,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Games'
-  '/console/m/{manufacturer}':
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
+  '/console/m/{manufacturerId}':
     get:
       tags:
         - consoles-controller
@@ -357,8 +465,27 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Consoles'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorResponse'
 components:
   schemas:
+    CustomErrorResponse:
+      type: object
+      properties:
+        errorMsg:
+          type: string
+        status:
+          type: integer
+          format: int32
+        errorCode:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
     Tshirt:
       required:
         - color
