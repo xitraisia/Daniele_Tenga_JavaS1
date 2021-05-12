@@ -36,7 +36,9 @@ public class GameStoreService {
     public void updateConsole(Consoles consoles) {
         consolesDao.updateConsole(consoles);
     }
-
+    public List<Consoles> getAllConsoles (){
+        return consolesDao.getAllConsoles();
+    }
     public Consoles getConsolebyId(int id) {
        return consolesDao.getConsole(id);
     }
@@ -56,9 +58,10 @@ public class GameStoreService {
     {
         gamesDao.updateGame(games);
     }
-
+    public List<Games> getAllGames(){
+        return gamesDao.getAllGame();
+    }
     public Games getGamebyId(int id) {
-//
         return gamesDao.getGame(id);
     }
 
@@ -86,6 +89,9 @@ public class GameStoreService {
     public void updateTshirt(Tshirt tshirt)
     {
         tshirtsDao.updateTshirt(tshirt);
+    }
+    public List<Tshirt> getAllTshirts(){
+        return tshirtsDao.getAllTshirts();
     }
 
     public Tshirt getTshirtbyId(int id) {

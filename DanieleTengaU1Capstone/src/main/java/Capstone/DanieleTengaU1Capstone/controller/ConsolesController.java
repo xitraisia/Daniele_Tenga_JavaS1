@@ -12,6 +12,7 @@ import java.io.Console;
 import java.util.List;
 
 @RestController
+//@CrossOrigin(origins = "http://localhost:3000")
 public class ConsolesController {
     //create  post
     //retrieve  get
@@ -27,6 +28,12 @@ public class ConsolesController {
     @ResponseStatus(HttpStatus.CREATED)
     public Consoles createConsole(@RequestBody @Valid Consoles console){
         return gameStoreService.saveConsoles(console);
+    }
+
+    @RequestMapping(value = "/console", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public List<Consoles> getAllConsole() {
+        return gameStoreService.getAllConsoles();
     }
 
     @RequestMapping(value = "/console/{id}", method = RequestMethod.GET)

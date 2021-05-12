@@ -13,6 +13,7 @@ import java.util.List;
 
 
 @RestController
+//@CrossOrigin(origins = "http://localhost:3000")
 public class TshirtController {
     //create
     //retrieve
@@ -29,6 +30,12 @@ public class TshirtController {
     @ResponseStatus(HttpStatus.CREATED)
     public Tshirt createTshirt(@RequestBody @Valid Tshirt tshirt){
         return gameStoreService.saveTshirt(tshirt);
+    }
+
+    @RequestMapping(value = "/tshirt", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public List<Tshirt> getAllTshirts() {
+        return gameStoreService.getAllTshirts();
     }
 
     @RequestMapping(value = "/tshirt/{id}", method = RequestMethod.GET)

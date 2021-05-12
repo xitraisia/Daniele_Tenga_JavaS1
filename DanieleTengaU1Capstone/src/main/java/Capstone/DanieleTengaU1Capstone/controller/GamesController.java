@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class GamesController {
     //create
     //retrieve
@@ -28,6 +29,12 @@ public class GamesController {
     @ResponseStatus(HttpStatus.CREATED)
     public Games createGame(@RequestBody @Valid Games games){
         return gameStoreService.saveGames(games);
+    }
+
+    @RequestMapping(value = "/game", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public List<Games> getGameAllGames() {
+        return gameStoreService.getAllGames();
     }
 
     @RequestMapping(value = "/game/{id}", method = RequestMethod.GET)
