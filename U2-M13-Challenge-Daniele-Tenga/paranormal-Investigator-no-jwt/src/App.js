@@ -27,7 +27,7 @@ function App() {
             <Investigator/>
           </Route>
         </Switch>
-      </Router >
+      </Router>
     </main>
   );
 }
